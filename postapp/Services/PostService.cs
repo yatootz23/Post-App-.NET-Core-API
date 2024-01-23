@@ -32,6 +32,8 @@ namespace postapp.Services
                 posts = posts.Where(p => p.content.Contains(query.content));
             }
 
+            posts = posts.OrderByDescending(p => p.date_posted);
+
             return await posts.ToListAsync();
 
         }

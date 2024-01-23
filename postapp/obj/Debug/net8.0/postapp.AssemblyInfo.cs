@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("postapp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44cfa107376bdaa8676dfe6018b765e82aa7f05d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf39b0155b150903ba85f71dee4d6b992071649c")]
 [assembly: System.Reflection.AssemblyProductAttribute("postapp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("postapp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
