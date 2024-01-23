@@ -9,6 +9,7 @@ using postapp.Models;
 using postapp.Mappers;
 using postapp.Dtos;
 using postapp.Interfaces;
+using postapp.Helpers;
 
 namespace postapp.Controllers
 {
@@ -23,15 +24,21 @@ namespace postapp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllPost()
+        public async Task<IActionResult> GetAllPost([FromQuery] QueryObject query)
         {
-            var posts = await _postService.GetAllPost();
+           if(!ModelState.IsValid){
+                return BadRequest();
+            }
+            var posts = await _postService.GetAllPost(query);
             var postDto = posts.Select(s => s.ToPostDto());
             return Ok(postDto.ToList());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetPost([FromRoute] int id){
+            if(!ModelState.IsValid){
+                return BadRequest();
+            }
             var post = await _postService.GetPost(id);
             if (post == null){
                 return NotFound();
@@ -41,21 +48,30 @@ namespace postapp.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreatePost([FromBody] CreatePostDto newPost){
+            if(!ModelState.IsValid){
+                return BadRequest();
+            }
             var postModel = newPost.CreatePostFromDto();
             await _postService.CreatePost(postModel); 
             return Ok();
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdatePost([FromRoute] int id, [FromBody] UpdatePostDto updatePost){
+            if(!ModelState.IsValid){
+                return BadRequest();
+            }
             if(await _postService.UpdatePost(id, updatePost) == null){
                 return NotFound();
             }
             return Ok();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeletePost([FromRoute] int id){
+            if(!ModelState.IsValid){
+                return BadRequest();
+            }
             if(await _postService.DeletePost(id) == null){
                 return NotFound();
             }

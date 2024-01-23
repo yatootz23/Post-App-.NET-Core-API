@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using postapp.Dtos;
+using postapp.Helpers;
 using postapp.Models;
 
 namespace postapp.Interfaces
 {
     public interface IPostService
     {
-        Task<List<Post>> GetAllPost();
+        Task<List<Post>> GetAllPost(QueryObject query);
 
         Task<Post?> GetPost(int id);
 

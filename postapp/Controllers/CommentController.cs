@@ -24,13 +24,17 @@ namespace postapp.Controllers
 
         [HttpGet]
         public async Task<IActionResult> GetComments(){
+            if(!ModelState.IsValid)
+                return BadRequest();
             var comments = await _commentService.GetComments();
             var commentDto = comments.Select(s => s.ToCommentDto());
             return Ok(commentDto.ToList());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetComment([FromRoute] int id){
+            if(!ModelState.IsValid)
+                return BadRequest();
             var comment = await _commentService.GetComment(id);
             if (comment == null){
                 return NotFound();
@@ -38,8 +42,10 @@ namespace postapp.Controllers
             return Ok(comment.ToCommentDto());
         }
 
-        [HttpPost("{PostId}")]
+        [HttpPost("{PostId:int}")]
         public async Task<IActionResult> CreateComment([FromRoute] int PostId, CreateCommentDto createCommentDto){
+            if(!ModelState.IsValid)
+                return BadRequest();
             if(!await _postService.PostExists(PostId)){
                 return BadRequest("Post does not exist");
             }
@@ -48,16 +54,20 @@ namespace postapp.Controllers
             return Ok(comment);
         }
 
-        [HttpPut("{id}")]
+        [HttpPatch("{id:int}")]
          public async Task<IActionResult> UpdateComment([FromRoute] int id, [FromBody]UpdateCommentDto updateCommentDto){
+            if(!ModelState.IsValid)
+                return BadRequest();
             if(await _commentService.UpdateComment(id,updateCommentDto) == null){
                 return NotFound();
             }
             return Ok();
          }
 
-         [HttpDelete("{id}")]
+         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteComment([FromRoute] int id){
+            if(!ModelState.IsValid)
+                return BadRequest();
             if(await _commentService.DeleteComment(id) == null){
                 return NotFound();
             }

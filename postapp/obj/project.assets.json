@@ -9126,11 +9126,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amiel.labajo\\Documents\\C#\\postapp\\postapp.csproj",
+      "projectUniqueName": "C:\\Users\\amiel.labajo\\Documents\\C#\\Post-App-.NET-Core-API\\postapp\\postapp.csproj",
       "projectName": "postapp",
-      "projectPath": "C:\\Users\\amiel.labajo\\Documents\\C#\\postapp\\postapp.csproj",
+      "projectPath": "C:\\Users\\amiel.labajo\\Documents\\C#\\Post-App-.NET-Core-API\\postapp\\postapp.csproj",
       "packagesPath": "C:\\Users\\amiel.labajo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amiel.labajo\\Documents\\C#\\postapp\\obj\\",
+      "outputPath": "C:\\Users\\amiel.labajo\\Documents\\C#\\Post-App-.NET-Core-API\\postapp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\amiel.labajo\\AppData\\Roaming\\NuGet\\NuGet.Config",

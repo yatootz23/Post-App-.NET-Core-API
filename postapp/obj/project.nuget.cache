@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GEcBAed2mBhbIHYGFzwul4EiGGdb5w6AQs4v+CGZWDDYW41uro5KVSoLrSvKRj1wTx4mH1gKybfmtx5lw3JLwg==",
+  "dgSpecHash": "1/vXuiK7n03p5aEurONmI3/9FEF/3bF9ZvR1QbBOWcHlMQ5b6yNF1cL9ncsrYoFMt5+rPmjp8aQcj1srU0cAFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\amiel.labajo\\Documents\\C#\\postapp\\postapp.csproj",
+  "projectFilePath": "C:\\Users\\amiel.labajo\\Documents\\C#\\Post-App-.NET-Core-API\\postapp\\postapp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\amiel.labajo\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\amiel.labajo\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using postapp.Data;
 using postapp.Dtos;
+using postapp.Helpers;
 using postapp.Interfaces;
 using postapp.Mappers;
 using postapp.Models;
@@ -22,8 +23,17 @@ namespace postapp.Services
             _AppDbContext = appDbContext;
         }
 
-        public async Task<List<Post>> GetAllPost(){
-            return await _AppDbContext.post.Include(c => c.Comments).ToListAsync();
+        public async Task<List<Post>> GetAllPost(QueryObject query){
+            var posts = _AppDbContext.post.Include(c => c.Comments).AsQueryable();
+            if(!string.IsNullOrWhiteSpace(query.post_title)){
+                posts = posts.Where(p => p.post_title.Contains(query.post_title));
+            }
+            if(!string.IsNullOrWhiteSpace(query.content)){
+                posts = posts.Where(p => p.content.Contains(query.content));
+            }
+
+            return await posts.ToListAsync();
+
         }
 
         public async Task<Post?> GetPost(int id){

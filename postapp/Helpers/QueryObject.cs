@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace postapp.Dtos
+namespace postapp.Helpers
 {
-    public class UpdatePostDto
+    public class QueryObject
     {
         public string? post_title { get; set; } = null;
-        public string? content { get; set; } = null;
+
+        public string? content  { get; set; } = null;
+        
+        
+        
+        
     }
 }
